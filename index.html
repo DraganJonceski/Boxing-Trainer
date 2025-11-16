@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boxing Training App</title>
+  <style>
+    :root {
+  /* Primitive Color Tokens */
+  --color-white: rgba(255, 255, 255, 1);
+  --color-black: rgba(0, 0, 0, 1);
+  --color-cream-50: rgba(252, 252, 249, 1);
+  --color-cream-100: rgba(255, 255, 253, 1);
+  --color-gray-200: rgba(245, 245, 245, 1);
+  --color-gray-300: rgba(167, 169, 169, 1);
+  --color-gray-400: rgba(119, 124, 124, 1);
+  --color-slate-500: rgba(98, 108, 113, 1);
+  --color-brown-600: rgba(94, 82, 64, 1);
+  --color-charcoal-700: rgba(31, 33, 33, 1);
+  --color-charcoal-800: rgba(38, 40, 40, 1);
+  --color-slate-900: rgba(19, 52, 59, 1);
+  --color-teal-300: rgba(50, 184, 198, 1);
+  --color-teal-400: rgba(45, 166, 178, 1);
+  --color-teal-500: rgba(33, 128, 141, 1);
+  --color-teal-600: rgba(29, 116, 128, 1);
+  --color-teal-700: rgba(26, 104, 115, 1);
+  --color-teal-800: rgba(41, 150, 161, 1);
+  --color-red-400: rgba(255, 84, 89, 1);
+  --color-red-500: rgba(192, 21, 47, 1);
+  --color-orange-400: rgba(230, 129, 97, 1);
+  --color-orange-500: rgba(168, 75, 47, 1);
+
+  --color-brown-600-rgb: 94, 82, 64;
+  --color-teal-500-rgb: 33, 128, 141;
+  --color-slate-900-rgb: 19, 52, 59;
+  --color-slate-500-rgb: 98, 108, 113;
+  --color-red-500-rgb: 192, 21, 47;
+  --color-red-400-rgb: 255, 84, 89;
+  --color-orange-500-rgb: 168, 75, 47;
+  --color-orange-400-rgb: 230, 129, 97;
+
+  --color-bg-1: rgba(59, 130, 246, 0.08);
+  --color-bg-2: rgba(245, 158, 11, 0.08);
+  --color-bg-3: rgba(34, 197, 94, 0.08);
+  --color-bg-4: rgba(239, 68, 68, 0.08);
+  --color-bg-5: rgba(147, 51, 234, 0.08);
+  --color-bg-6: rgba(249, 115, 22, 0.08);
+  --color-bg-7: rgba(236, 72, 153, 0.08);
+  --color-bg-8: rgba(6, 182, 212, 0.08);
+
+  --color-background: var(--color-cream-50);
+  --color-surface: var(--color-cream-100);
+  --color-text: var(--color-slate-900);
+  --color-text-secondary: var(--color-slate-500);
+  --color-primary: var(--color-teal-500);
+  --color-primary-hover: var(--color-teal-600);
+  --color-primary-active: var(--color-teal-700);
+  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-btn-primary-text: var(--color-cream-50);
+  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-error: var(--color-red-500);
+  --color-success: var(--color-teal-500);
+  --color-warning: var(--color-orange-500);
+  --color-info: var(--color-slate-500);
+  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+  --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
+
+  --focus-ring: 0 0 0 3px var(--color-focus-ring);
+  --focus-outline: 2px solid var(--color-primary);
+  --status-bg-opacity: 0.15;
+  --status-border-opacity: 0.25;
+
+  --color-success-rgb: 33, 128, 141;
+  --color-error-rgb: 192, 21, 47;
+  --color-warning-rgb: 168, 75, 47;
+  --color-info-rgb: 98, 108, 113;
+
+  --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 20px;
+  --font-size-3xl: 24px;
+  --font-size-4xl: 30px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 550;
+  --font-weight-bold: 600;
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --letter-spacing-tight: -0.01em;
+
+  --space-0: 0;
+  --space-1: 1px;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+
+  --radius-sm: 6px;
+  --radius-base: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15), inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-gray-400-rgb: 119, 124, 124;
+    --color-teal-300-rgb: 50, 184, 198;
+    --color-gray-300-rgb: 167, 169, 169;
+    --color-gray-200-rgb: 245, 245, 245;
+
+    --color-bg-1: rgba(29, 78, 216, 0.15);
+    --color-bg-2: rgba(180, 83, 9, 0.15);
+    --color-bg-3: rgba(21, 128, 61, 0.15);
+    --color-bg-4: rgba(185, 28, 28, 0.15);
+    --color-bg-5: rgba(107, 33, 168, 0.15);
+    --color-bg-6: rgba(194, 65, 12, 0.15);
+    --color-bg-7: rgba(190, 24, 93, 0.15);
+    --color-bg-8: rgba(8, 145, 178, 0.15);
+
+    --color-background: var(--color-charcoal-700);
+    --color-surface: var(--color-charcoal-800);
+    --color-text: var(--color-gray-200);
+    --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+    --color-primary: var(--color-teal-300);
+    --color-primary-hover: var(--color-teal-400);
+    --color-primary-active: var(--color-teal-800);
+    --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+    --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+    --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
+    --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+    --color-error: var(--color-red-400);
+    --color-success: var(--color-teal-300);
+    --color-warning: var(--color-orange-400);
+    --color-info: var(--color-gray-300);
+    --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
+    --color-btn-primary-text: var(--color-slate-900);
+    --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+    --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
+    --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+    --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
+
+    --color-success-rgb: var(--color-teal-300-rgb);
+    --color-error-rgb: var(--color-red-400-rgb);
+    --color-warning-rgb: var(--color-orange-400-rgb);
+    --color-info-rgb: var(--color-gray-300-rgb);
+  }
+}
+
+@font-face {
+  font-family: 'FKGroteskNeue';
+  src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2') format('woff2');
+}
+
+html {
+  font-size: var(--font-size-base);
+  font-family: var(--font-family-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+/* Custom styles */
+.app {
+  min-height: 100vh;
+}
+
+.header {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-16) var(--space-24);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: var(--shadow-sm);
+}
+
+.header-content {
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.logo-icon {
+  font-size: var(--font-size-4xl);
+}
+
+.nav-tabs {
+  display: flex;
+  gap: var(--space-8);
+  background: var(--color-secondary);
+  padding: var(--space-4);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+}
+
+.nav-tab {
+  padding: var(--space-8) var(--space-16);
+  background: transparent;
+  border: none;
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+  white-space: nowrap;
+}
+
+.nav-tab:hover {
+  background: var(--color-secondary-hover);
+  color: var(--color-text);
+}
+
+.nav-tab.active {
+  background: var(--color-primary);
+  color: var(--color-btn-primary-text);
+}
+
+.main-content {
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  padding: var(--space-24);
+}
+
+.section {
+  display: none;
+}
+
+.section.active {
+  display: block;
+}
+
+.section-header {
+  margin-bottom: var(--space-24);
+}
+
+.section-title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-8);
+}
+
+.section-description {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-16);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+.card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-20);
+  transition: all var(--duration-normal) var(--ease-standard);
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--space-12);
+}
+
+.punch-number {
+  background: var(--color-primary);
+  color: var(--color-btn-primary-text);
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  flex-shrink: 0;
+}
+
+.card-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-4);
+}
+
+.card-subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-12);
+}
+
+.card-description {
+  font-size: var(--font-size-base);
+  color: var(--color-text);
+  line-height: 1.6;
+  margin-bottom: var(--space-12);
+}
+
+.card-details {
+  margin-top: var(--space-16);
+  padding-top: var(--space-16);
+  border-top: 1px solid var(--color-card-border-inner);
+}
+
+.detail-section {
+  margin-bottom: var(--space-16);
+}
+
+.detail-title {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-8);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.detail-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.detail-list li {
+  padding: var(--space-6) 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  padding-left: var(--space-16);
+  position: relative;
+}
+
+.detail-list li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+.combo-badge {
+  display: inline-block;
+  background: var(--color-bg-1);
+  color: var(--color-text);
+  padding: var(--space-4) var(--space-8);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  margin-right: var(--space-4);
+  margin-bottom: var(--space-4);
+}
+
+.level-badge {
+  display: inline-block;
+  padding: var(--space-4) var(--space-12);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+}
+
+.level-badge.beginner {
+  background: var(--color-bg-3);
+  color: var(--color-success);
+}
+
+.level-badge.intermediate {
+  background: var(--color-bg-2);
+  color: var(--color-warning);
+}
+
+.level-badge.advanced {
+  background: var(--color-bg-4);
+  color: var(--color-error);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-10) var(--space-20);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-standard);
+  border: none;
+  text-decoration: none;
+  font-family: var(--font-family-base);
+}
+
+.btn-primary {
+  background: var(--color-primary);
+  color: var(--color-btn-primary-text);
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-hover);
+}
+
+.btn-secondary {
+  background: var(--color-secondary);
+  color: var(--color-text);
+}
+
+.btn-secondary:hover {
+  background: var(--color-secondary-hover);
+}
+
+.btn-full {
+  width: 100%;
+}
+
+.timer-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.timer-display {
+  background: var(--color-surface);
+  border: 2px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-32);
+  text-align: center;
+  margin-bottom: var(--space-24);
+}
+
+.timer-time {
+  font-size: 72px;
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin: var(--space-16) 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.timer-status {
+  font-size: var(--font-size-xl);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-8);
+}
+
+.timer-round {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+}
+
+.timer-controls {
+  display: flex;
+  gap: var(--space-12);
+  justify-content: center;
+  margin-bottom: var(--space-24);
+}
+
+.timer-settings {
+  background: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-20);
+}
+
+.form-group {
+  margin-bottom: var(--space-16);
+}
+
+.form-label {
+  display: block;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  margin-bottom: var(--space-8);
+}
+
+.form-input {
+  width: 100%;
+  padding: var(--space-10) var(--space-12);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family-base);
+  color: var(--color-text);
+  background: var(--color-background);
+}
+
+.form-input:focus {
+  outline: var(--focus-outline);
+  border-color: var(--color-primary);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-16);
+  margin-bottom: var(--space-24);
+}
+
+.stat-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-20);
+  text-align: center;
+}
+
+.stat-value {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--space-8);
+}
+
+.stat-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.history-item {
+  background: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-base);
+  padding: var(--space-16);
+  margin-bottom: var(--space-12);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.history-info {
+  flex: 1;
+}
+
+.history-name {
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-4);
+}
+
+.history-date {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.history-duration {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+}
+
+.filter-bar {
+  margin-bottom: var(--space-24);
+  display: flex;
+  gap: var(--space-12);
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: var(--space-8) var(--space-16);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.filter-btn:hover {
+  background: var(--color-secondary-hover);
+}
+
+.filter-btn.active {
+  background: var(--color-primary);
+  color: var(--color-btn-primary-text);
+  border-color: var(--color-primary);
+}
+
+.workout-breakdown {
+  margin-top: var(--space-16);
+}
+
+.round-item {
+  background: var(--color-bg-1);
+  border-radius: var(--radius-base);
+  padding: var(--space-12);
+  margin-bottom: var(--space-12);
+}
+
+.round-name {
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-4);
+}
+
+.round-details {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.step-list {
+  list-style: none;
+  padding: 0;
+  margin: var(--space-12) 0;
+}
+
+.step-list li {
+  padding: var(--space-8);
+  margin-bottom: var(--space-8);
+  background: var(--color-bg-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+}
+
+.welcome-section {
+  text-align: center;
+  padding: var(--space-32) 0;
+}
+
+.welcome-icon {
+  font-size: 80px;
+  margin-bottom: var(--space-16);
+}
+
+.welcome-title {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-16);
+}
+
+.welcome-text {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-32);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-16);
+  margin-top: var(--space-32);
+}
+
+.quick-action-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-24);
+  text-align: center;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-standard);
+}
+
+.quick-action-card:hover {
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.quick-action-icon {
+  font-size: 48px;
+  margin-bottom: var(--space-12);
+}
+
+.quick-action-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-8);
+}
+
+.quick-action-desc {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: var(--space-16);
+  }
+  
+  .nav-tabs {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .timer-time {
+    font-size: 56px;
+  }
+  
+  .main-content {
+    padding: var(--space-16);
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header-content">
+        <div class="logo">
+          <span class="logo-icon">🥊</span>
+          <span>Boxing Trainer</span>
+        </div>
+        <nav class="nav-tabs">
+          <button class="nav-tab active" data-section="home">Home</button>
+          <button class="nav-tab" data-section="techniques">Techniques</button>
+          <button class="nav-tab" data-section="combinations">Combos</button>
+          <button class="nav-tab" data-section="workouts">Workouts</button>
+          <button class="nav-tab" data-section="drills">Drills</button>
+          <button class="nav-tab" data-section="timer">Timer</button>
+          <button class="nav-tab" data-section="progress">Progress</button>
+        </nav>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <!-- HOME SECTION -->
+      <section id="home" class="section active">
+        <div class="welcome-section">
+          <div class="welcome-icon">🥊</div>
+          <h1 class="welcome-title">Welcome to Boxing Trainer</h1>
+          <p class="welcome-text">
+            Your comprehensive guide to learning and mastering boxing techniques. 
+            Train smarter with guided workouts, technique breakdowns, and interval timers.
+          </p>
+        </div>
+        
+        <div class="quick-actions">
+          <div class="quick-action-card" onclick="navigateToSection('techniques')">
+            <div class="quick-action-icon">👊</div>
+            <h3 class="quick-action-title">Learn Techniques</h3>
+            <p class="quick-action-desc">Master the 6 basic boxing punches</p>
+          </div>
+          <div class="quick-action-card" onclick="navigateToSection('workouts')">
+            <div class="quick-action-icon">💪</div>
+            <h3 class="quick-action-title">Start Workout</h3>
+            <p class="quick-action-desc">Choose from beginner to advanced routines</p>
+          </div>
+          <div class="quick-action-card" onclick="navigateToSection('timer')">
+            <div class="quick-action-icon">⏱️</div>
+            <h3 class="quick-action-title">Boxing Timer</h3>
+            <p class="quick-action-desc">Customize your training rounds</p>
+          </div>
+          <div class="quick-action-card" onclick="navigateToSection('progress')">
+            <div class="quick-action-icon">📊</div>
+            <h3 class="quick-action-title">View Progress</h3>
+            <p class="quick-action-desc">Track your training journey</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- TECHNIQUES SECTION -->
+      <section id="techniques" class="section">
+        <div class="section-header">
+          <h2 class="section-title">Boxing Techniques</h2>
+          <p class="section-description">Master the 6 fundamental boxing punches. Click on each card to see detailed form tips and common mistakes.</p>
+        </div>
+        <div class="grid" id="techniques-grid"></div>
+      </section>
+
+      <!-- COMBINATIONS SECTION -->
+      <section id="combinations" class="section">
+        <div class="section-header">
+          <h2 class="section-title">Punch Combinations</h2>
+          <p class="section-description">Learn popular punch combinations to build your fighting repertoire.</p>
+        </div>
+        <div class="grid" id="combinations-grid"></div>
+      </section>
+
+      <!-- WORKOUTS SECTION -->
+      <section id="workouts" class="section">
+        <div class="section-header">
+          <h2 class="section-title">Workout Routines</h2>
+          <p class="section-description">Pre-built workouts designed for different skill levels.</p>
+        </div>
+        <div class="filter-bar">
+          <button class="filter-btn active" data-level="all">All Levels</button>
+          <button class="filter-btn" data-level="beginner">Beginner</button>
+          <button class="filter-btn" data-level="intermediate">Intermediate</button>
+          <button class="filter-btn" data-level="advanced">Advanced</button>
+        </div>
+        <div class="grid" id="workouts-grid"></div>
+      </section>
+
+      <!-- DRILLS SECTION -->
+      <section id="drills" class="section">
+        <div class="section-header">
+          <h2 class="section-title">Practice Drills</h2>
+          <p class="section-description">Focused drills to improve specific aspects of your boxing.</p>
+        </div>
+        <div class="grid" id="drills-grid"></div>
+      </section>
+
+      <!-- TIMER SECTION -->
+      <section id="timer" class="section">
+        <div class="section-header">
+          <h2 class="section-title">Boxing Interval Timer</h2>
+          <p class="section-description">Customize your training rounds with work and rest periods.</p>
+        </div>
+        <div class="timer-container">
+          <div class="timer-display">
+            <div class="timer-status" id="timer-status">Ready</div>
+            <div class="timer-time" id="timer-display">3:00</div>
+            <div class="timer-round" id="timer-round">Round 1 of 3</div>
+          </div>
+          <div class="timer-controls">
+            <button class="btn btn-primary" id="timer-start">Start</button>
+            <button class="btn btn-secondary" id="timer-pause" style="display: none;">Pause</button>
+            <button class="btn btn-secondary" id="timer-reset">Reset</button>
+          </div>
+          <div class="timer-settings">
+            <div class="form-group">
+              <label class="form-label">Work Time (seconds)</label>
+              <input type="number" class="form-input" id="work-time" value="180" min="10" max="600">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Rest Time (seconds)</label>
+              <input type="number" class="form-input" id="rest-time" value="60" min="5" max="300">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Number of Rounds</label>
+              <input type="number" class="form-input" id="num-rounds" value="3" min="1" max="12">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROGRESS SECTION -->
+      <section id="progress" class="section">
+        <div class="section-header">
+          <h2 class="section-title">Your Progress</h2>
+          <p class="section-description">Track your training statistics and workout history.</p>
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-value" id="total-workouts">0</div>
+            <div class="stat-label">Total Workouts</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="total-time">0</div>
+            <div class="stat-label">Minutes Trained</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-value" id="current-streak">0</div>
+            <div class="stat-label">Day Streak</div>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin-bottom: var(--space-16);">Recent Workouts</h3>
+          <div id="workout-history"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    // Data
+    const techniques = [
+      {
+        id: 1,
+        name: "Jab",
+        number: "1",
+        arm: "Left",
+        description: "The jab is a quick, straight punch thrown from your lead (front) hand. It's the foundation of boxing and is used to set up combinations, maintain distance, and build rhythm.",
+        form_tips: [
+          "Stand in boxing stance with fists up",
+          "Extend lead arm straight forward from chin",
+          "Keep your hand up for protection",
+          "Rotate your shoulder as you extend",
+          "Snap it back quickly",
+          "Keep knees bent for power transfer"
+        ],
+        common_mistakes: [
+          "Leaning too far forward",
+          "Overextending the arm",
+          "Dropping your guard",
+          "Telegraphing the punch"
+        ],
+        recommended_combos: ["1-2", "1-2-3", "1-1-2", "1-3"]
+      },
+      {
+        id: 2,
+        name: "Cross",
+        number: "2",
+        arm: "Right",
+        description: "The cross is a powerful straight punch thrown from your rear (back) hand. It's one of the most powerful punches and is often used as a finishing punch in combinations.",
+        form_tips: [
+          "Keep lead hand up for protection",
+          "Rotate rear hip forward explosively",
+          "Extend rear arm straight forward",
+          "Transfer weight from back leg to front leg",
+          "Rotate torso to generate power",
+          "Keep chin tucked"
+        ],
+        common_mistakes: [
+          "Dropping hands after punching",
+          "Not rotating hips enough",
+          "Over-rotating and losing balance",
+          "Planting feet rigidly"
+        ],
+        recommended_combos: ["1-2", "1-2-3", "2-3-2", "1-2-1"]
+      },
+      {
+        id: 3,
+        name: "Lead Hook",
+        number: "3",
+        arm: "Left",
+        description: "The lead hook is a curved punch thrown from your lead hand at a 90-degree angle. It's effective for hitting opponents on the side and setting up combinations.",
+        form_tips: [
+          "Bend lead arm at 90-degree angle",
+          "Rotate torso and front leg",
+          "Keep elbow up at shoulder height",
+          "Drive through with your hip rotation",
+          "Keep your chin down",
+          "Pivot on your front foot"
+        ],
+        common_mistakes: [
+          "Dropping elbow too low",
+          "Telegraphing with big wind-up",
+          "Not rotating hips enough",
+          "Overextending arm"
+        ],
+        recommended_combos: ["1-2-3", "3-2", "1-3", "1-2-3-2"]
+      },
+      {
+        id: 4,
+        name: "Rear Hook",
+        number: "4",
+        arm: "Right",
+        description: "The rear hook is a curved punch thrown from your rear hand at a 90-degree angle. It's a powerful punch that can be used to target the body or head.",
+        form_tips: [
+          "Bend rear arm at 90-degree angle",
+          "Rotate rear hip explosively",
+          "Keep elbow up at shoulder height",
+          "Transfer weight to front leg as you throw",
+          "Drive with your core and legs",
+          "Maintain balance throughout"
+        ],
+        common_mistakes: [
+          "Arm too straight (becomes a haymaker)",
+          "Not enough hip rotation",
+          "Overcommitting and losing balance",
+          "Leaving chin exposed"
+        ],
+        recommended_combos: ["1-2-4", "3-4", "2-4", "1-2-3-4"]
+      },
+      {
+        id: 5,
+        name: "Lead Uppercut",
+        number: "5",
+        arm: "Left",
+        description: "The lead uppercut is an upward punch thrown from your lead hand. It's effective for close-range fighting and can be used to counter low-handed opponents.",
+        form_tips: [
+          "Dip your lead shoulder",
+          "Bend your knees for leverage",
+          "Drive upward with your lead arm",
+          "Rotate your torso upward",
+          "Keep your hand close to body initially",
+          "Finish with explosive hip drive"
+        ],
+        common_mistakes: [
+          "Dropping guard too much",
+          "Not bending knees enough",
+          "Telegraphing with shoulder drop",
+          "Pushing instead of punching"
+        ],
+        recommended_combos: ["1-2-5", "5-2", "5-6", "1-2-5-6"]
+      },
+      {
+        id: 6,
+        name: "Rear Uppercut",
+        number: "6",
+        arm: "Right",
+        description: "The rear uppercut is a powerful upward punch thrown from your rear hand. It's one of the most devastating punches when properly timed.",
+        form_tips: [
+          "Dip your rear shoulder",
+          "Bend knees for maximum leverage",
+          "Drive upward explosively",
+          "Rotate entire body upward",
+          "Transfer weight from back to front leg",
+          "Keep chin tucked"
+        ],
+        common_mistakes: [
+          "Over-committing and falling forward",
+          "Not enough knee bend",
+          "Dropping hands during punch",
+          "Throwing wild without setup"
+        ],
+        recommended_combos: ["1-2-6", "5-6", "2-6", "1-2-5-6"]
+      }
+    ];
+
+    const combinations = [
+      {
+        id: 1,
+        name: "Basic Jab-Cross (1-2)",
+        numbers: "1-2",
+        description: "The foundation of boxing. Start with a jab to set distance, follow immediately with a powerful cross.",
+        steps: [
+          "Throw left jab quickly",
+          "Immediately follow with right cross",
+          "Both punches should flow together",
+          "Rotate hips with the cross",
+          "Return to guard"
+        ]
+      },
+      {
+        id: 2,
+        name: "Jab-Cross-Hook (1-2-3)",
+        numbers: "1-2-3",
+        description: "A classic three-punch combination. Use the jab and cross to set up a lead hook.",
+        steps: [
+          "Throw left jab",
+          "Follow with right cross",
+          "Finish with left lead hook",
+          "Each punch flows into the next",
+          "Rotate hips throughout"
+        ]
+      },
+      {
+        id: 3,
+        name: "Double Jab-Cross (1-1-2)",
+        numbers: "1-1-2",
+        description: "Throw two jabs to confuse opponent, then finish with a cross.",
+        steps: [
+          "Throw first left jab",
+          "Immediately throw second left jab",
+          "Follow with right cross",
+          "Maintain momentum through combination",
+          "Return to guard"
+        ]
+      },
+      {
+        id: 4,
+        name: "Cross-Left Hook (2-3)",
+        numbers: "2-3",
+        description: "Start with power, finish with an angle. Begin with cross, follow with lead hook.",
+        steps: [
+          "Throw right cross",
+          "Immediately pivot left and throw lead hook",
+          "Maximum hip rotation through both punches",
+          "High power output combination",
+          "Good for close range"
+        ]
+      },
+      {
+        id: 5,
+        name: "Cross-Hook-Cross (2-3-2)",
+        numbers: "2-3-2",
+        description: "Advanced combination with angles. Creates confusion for opponent.",
+        steps: [
+          "Throw right cross",
+          "Follow with left lead hook",
+          "Return with right cross",
+          "Each punch comes from different angle",
+          "Requires good footwork and timing"
+        ]
+      },
+      {
+        id: 6,
+        name: "Jab-Cross-Body Hook (1-2-3b)",
+        numbers: "1-2-3b",
+        description: "Mix up your attack by targeting the body with the hook.",
+        steps: [
+          "Throw left jab to head",
+          "Follow with right cross to head",
+          "Dip and throw left hook to body",
+          "Return to guard quickly",
+          "Great for opening up head shots"
+        ]
+      },
+      {
+        id: 7,
+        name: "Lead Hook-Cross (3-2)",
+        numbers: "3-2",
+        description: "Start with an angle, finish with power.",
+        steps: [
+          "Throw left lead hook",
+          "Immediately follow with right cross",
+          "Use hook to create opening",
+          "Drive through with cross",
+          "Fast combination for countering"
+        ]
+      },
+      {
+        id: 8,
+        name: "Jab-Uppercut-Cross (1-5-2)",
+        numbers: "1-5-2",
+        description: "Close-range combination with vertical attack.",
+        steps: [
+          "Throw left jab",
+          "Step in with left uppercut",
+          "Finish with right cross",
+          "Effective in close quarters",
+          "Mix up attack angles"
+        ]
+      },
+      {
+        id: 9,
+        name: "Hook-Uppercut-Hook (3-6-3)",
+        numbers: "3-6-3",
+        description: "Devastating close-range combination.",
+        steps: [
+          "Throw left lead hook",
+          "Drive right uppercut through center",
+          "Finish with left hook",
+          "All punches at close range",
+          "Maximum power generation"
+        ]
+      },
+      {
+        id: 10,
+        name: "Four-Punch Combo (1-2-3-4)",
+        numbers: "1-2-3-4",
+        description: "Extended combination for sustained pressure.",
+        steps: [
+          "Start with jab-cross (1-2)",
+          "Add left lead hook (3)",
+          "Finish with right rear hook (4)",
+          "Maintain balance throughout",
+          "Great for overwhelming opponent"
+        ]
+      }
+    ];
+
+    const workouts = [
+      {
+        id: 1,
+        name: "Beginner Warm-Up and Basics",
+        level: "beginner",
+        duration: 20,
+        rounds: 4,
+        description: "Perfect for beginners. Focus on learning proper form and basic combinations.",
+        breakdown: [
+          {
+            name: "Warm-Up",
+            duration: 5,
+            exercises: "Jumping jacks, arm circles, light jogging in place"
+          },
+          {
+            name: "Round 1: Jabs and Crosses",
+            work_time: 3,
+            rest_time: 1,
+            exercises: "Alternate jabs and crosses, 50% intensity"
+          },
+          {
+            name: "Round 2: Basic Combinations",
+            work_time: 3,
+            rest_time: 1,
+            exercises: "1-2 combinations repeatedly, focus on form"
+          },
+          {
+            name: "Round 3: Jabs, Crosses, and Hooks",
+            work_time: 3,
+            rest_time: 1,
+            exercises: "1-2-3 combinations, maintain rhythm"
+          },
+          {
+            name: "Cool-Down",
+            duration: 5,
+            exercises: "Stretching, slow breathing, arm rolls"
+          }
+        ]
+      },
+      {
+        id: 2,
+        name: "Intermediate Circuit",
+        level: "intermediate",
+        duration: 35,
+        rounds: 5,
+        description: "Build endurance and learn varied combinations.",
+        breakdown: [
+          {
+            name: "Warm-Up",
+            duration: 5,
+            exercises: "Jump rope (2 min), dynamic stretching, light shadow boxing"
+          },
+          {
+            name: "Round 1: Combo Practice",
+            work_time: 3,
+            rest_time: 1,
+            exercises: "1-2, 1-2-3, 1-2-3-2 combinations"
+          },
+          {
+            name: "Round 2: Bodyweight Circuit",
+            work_time: 3,
+            rest_time: 1,
+            exercises: "Shadow boxing with 20 push-ups during round"
+          },
+          {
+            name: "Round 3: Defense Drills",
+            work_time: 3,
+            rest_time: 1,
+            exercises: "Slip, bob, weave movements with shadow boxing"
+          },
+          {
+            name: "Round 4: High-Intensity Combinations",
+            work_time: 3,
+            rest_time: 1,
+            exercises: "All combinations at 75% intensity"
+          },
+          {
+            name: "Round 5: Finishing Round",
+            work_time: 3,
+            rest_time: 1,
+            exercises: "Mixed combinations at preferred pace"
+          },
+          {
+            name: "Cool-Down",
+            duration: 5,
+            exercises: "Walking, deep stretching, recovery breathing"
+          }
+        ]
+      },
+      {
+        id: 3,
+        name: "Advanced Intense Session",
+        level: "advanced",
+        duration: 50,
+        rounds: 6,
+        description: "High-intensity training for experienced boxers.",
+        breakdown: [
+          {
+            name: "Warm-Up",
+            duration: 5,
+            exercises: "Jump rope variations, shadow boxing with footwork drills"
+          },
+          {
+            name: "Round 1: Pace Round",
+            work_time: 3,
+            rest_time: 1,
+            exercises: "Steady pace 1-2 combinations with footwork"
+          },
+          {
+            name: "Round 2: Power Round",
+            work_time: 3,
+            rest_time: 1,
+            exercises: "Power combinations: 2-3-2, heavy emphasis on hip rotation"
+          },
+          {
+            name: "Round 3: Speed Round",
+            work_time: 3,
+            rest_time: 1,
+            exercises: "Fast combinations at 80% intensity, focus on speed"
+          },
+          {
+            name: "Round 4: Technical Round",
+            work_time: 3,
+            rest_time: 1,
+            exercises: "Complex combinations with head movement and footwork"
+          },
+          {
+            name: "Round 5: Conditioning",
+            work_time: 3,
+            rest_time: 1,
+            exercises: "Burpees, jump squats, mountain climbers between shadow boxing"
+          },
+          {
+            name: "Round 6: Finale",
+            work_time: 3,
+            rest_time: 1,
+            exercises: "All-out effort with preferred combinations"
+          },
+          {
+            name: "Cool-Down",
+            duration: 5,
+            exercises: "Long stretching session, foam rolling if available"
+          }
+        ]
+      }
+    ];
+
+    const drills = [
+      {
+        id: 1,
+        name: "Shadow Boxing Basics",
+        type: "Technical",
+        duration: 15,
+        description: "Practice your techniques without equipment. Perfect for warm-up or technique refinement.",
+        steps: [
+          "Step 1: Assume proper boxing stance (feet shoulder-width, knees bent, hands up)",
+          "Step 2: Throw light jabs while moving forward (1 minute)",
+          "Step 3: Add crosses while maintaining distance (1 minute)",
+          "Step 4: Throw 1-2 combinations while moving (2 minutes)",
+          "Step 5: Add 1-2-3 combinations with side movement (2 minutes)",
+          "Step 6: Practice footwork - side steps while punching (2 minutes)",
+          "Step 7: Free flowing combinations at comfortable pace (3 minutes)",
+          "Step 8: Cool down with light movement and breathing"
+        ],
+        tips: [
+          "Focus on form over speed",
+          "Imagine an opponent in front of you",
+          "Keep hands up for protection",
+          "Stay loose and fluid",
+          "Breathe continuously"
+        ]
+      },
+      {
+        id: 2,
+        name: "Footwork Circle Drill",
+        type: "Footwork",
+        duration: 12,
+        description: "Improve footwork and movement around an opponent while maintaining proper stance.",
+        steps: [
+          "Step 1: Pick a center point (mark or use imagination)",
+          "Step 2: Stand in boxing stance, lead leg pointing at center",
+          "Step 3: Take small steps around the point in a complete circle (forward direction, 2 min)",
+          "Step 4: Reverse direction and circle the opposite way (2 min)",
+          "Step 5: Face away from the center, back toward it (2 min)",
+          "Step 6: Circle while maintaining boxer stance (2 min)",
+          "Step 7: Add light shadow punches while circling (2 min)",
+          "Step 8: Rest and breathe"
+        ],
+        tips: [
+          "Never cross your feet",
+          "Keep stance wide and stable",
+          "Move from your hips, not just legs",
+          "Maintain vision on the center point",
+          "Stay bouncy on the balls of your feet"
+        ]
+      },
+      {
+        id: 3,
+        name: "Combination Drill: 1-2-3 Repetitions",
+        type: "Combinations",
+        duration: 10,
+        description: "Practice the essential 1-2-3 combination repeatedly to build muscle memory.",
+        steps: [
+          "Step 1: Start in boxing stance",
+          "Step 2: Throw jab (1), cross (2), lead hook (3)",
+          "Step 3: Immediately reset and repeat",
+          "Step 4: Continue for 3 minutes at steady pace",
+          "Step 5: Rest 30 seconds",
+          "Step 6: Repeat 3 more rounds, increasing speed each round"
+        ],
+        tips: [
+          "Don't sacrifice form for speed",
+          "Each punch should flow into the next",
+          "Rotate hips with each punch",
+          "Keep hands up between punches",
+          "Build speed gradually"
+        ]
+      },
+      {
+        id: 4,
+        name: "Defense Basics - Slip and Duck",
+        type: "Defense",
+        duration: 10,
+        description: "Learn basic defensive movements to avoid incoming punches.",
+        steps: [
+          "Step 1: Stand in boxing stance",
+          "Step 2: Slip left - rotate shoulders, tilt head right (practice 1 min)",
+          "Step 3: Slip right - rotate shoulders, tilt head left (practice 1 min)",
+          "Step 4: Bob and weave - crouch and move side to side (practice 2 min)",
+          "Step 5: Slip practice - rotate shoulders and tilt head alternating (2 min)",
+          "Step 6: Combination: slip + counter punch (throw 1-2 after slipping) (2 min)",
+          "Step 7: Rest"
+        ],
+        tips: [
+          "Movements should be small and quick",
+          "Never fully drop your hands",
+          "Keep your feet set for counters",
+          "Practice slowly first, then increase speed",
+          "Keep chin tucked down"
+        ]
+      },
+      {
+        id: 5,
+        name: "Heavy Bag Combos",
+        type: "Power",
+        duration: 15,
+        description: "Practice combinations on a heavy bag to develop power and timing. (No bag? Use shadow boxing.)",
+        steps: [
+          "Step 1: Warm up with light punches on bag (1 min)",
+          "Step 2: Throw 1-2 combinations with full power for 1 minute",
+          "Step 3: Rest 30 seconds",
+          "Step 4: Throw 1-2-3 combinations with full power for 1 minute",
+          "Step 5: Rest 30 seconds",
+          "Step 6: Throw 2-3-2 combinations focusing on power for 1 minute",
+          "Step 7: Rest 30 seconds",
+          "Step 8: Free-form combinations at high intensity for 2 minutes",
+          "Step 9: Cool down with light movement"
+        ],
+        tips: [
+          "Start at moderate intensity",
+          "Let hips generate the power",
+          "Maintain proper distance",
+          "Keep hands protecting face",
+          "Don't over-extend your arms"
+        ]
+      }
+    ];
+
+    // State management (using in-memory variables instead of localStorage)
+    let appState = {
+      totalWorkouts: 0,
+      totalMinutes: 0,
+      workoutHistory: [],
+      currentStreak: 0,
+      lastWorkoutDate: null
+    };
+
+    // Timer state
+    let timerState = {
+      isRunning: false,
+      isPaused: false,
+      currentRound: 1,
+      totalRounds: 3,
+      workTime: 180,
+      restTime: 60,
+      timeRemaining: 180,
+      isResting: false,
+      interval: null
+    };
+
+    // Navigation
+    function navigateToSection(sectionName) {
+      document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.querySelectorAll('.nav-tab').forEach(tab => {
+        tab.classList.remove('active');
+      });
+      
+      document.getElementById(sectionName).classList.add('active');
+      document.querySelector(`[data-section="${sectionName}"]`).classList.add('active');
+      
+      if (sectionName === 'progress') {
+        renderProgress();
+      }
+    }
+
+    document.querySelectorAll('.nav-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const section = tab.dataset.section;
+        navigateToSection(section);
+      });
+    });
+
+    // Render techniques
+    function renderTechniques() {
+      const grid = document.getElementById('techniques-grid');
+      grid.innerHTML = techniques.map(tech => `
+        <div class="card" onclick="toggleDetails(this)">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">${tech.name}</h3>
+              <p class="card-subtitle">${tech.arm} hand - Punch ${tech.number}</p>
+            </div>
+            <div class="punch-number">${tech.number}</div>
+          </div>
+          <p class="card-description">${tech.description}</p>
+          <div class="card-details" style="display: none;">
+            <div class="detail-section">
+              <h4 class="detail-title">Form Tips</h4>
+              <ul class="detail-list">
+                ${tech.form_tips.map(tip => `<li>${tip}</li>`).join('')}
+              </ul>
+            </div>
+            <div class="detail-section">
+              <h4 class="detail-title">Common Mistakes</h4>
+              <ul class="detail-list">
+                ${tech.common_mistakes.map(mistake => `<li>${mistake}</li>`).join('')}
+              </ul>
+            </div>
+            <div class="detail-section">
+              <h4 class="detail-title">Recommended Combos</h4>
+              <div>
+                ${tech.recommended_combos.map(combo => `<span class="combo-badge">${combo}</span>`).join('')}
+              </div>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Render combinations
+    function renderCombinations() {
+      const grid = document.getElementById('combinations-grid');
+      grid.innerHTML = combinations.map(combo => `
+        <div class="card" onclick="toggleDetails(this)">
+          <div class="card-header">
+            <h3 class="card-title">${combo.name}</h3>
+            <div class="punch-number">${combo.numbers}</div>
+          </div>
+          <p class="card-description">${combo.description}</p>
+          <div class="card-details" style="display: none;">
+            <div class="detail-section">
+              <h4 class="detail-title">Steps</h4>
+              <ul class="detail-list">
+                ${combo.steps.map(step => `<li>${step}</li>`).join('')}
+              </ul>
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Render workouts
+    function renderWorkouts(filterLevel = 'all') {
+      const grid = document.getElementById('workouts-grid');
+      const filtered = filterLevel === 'all' ? workouts : workouts.filter(w => w.level === filterLevel);
+      
+      grid.innerHTML = filtered.map(workout => `
+        <div class="card" onclick="toggleDetails(this)">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">${workout.name}</h3>
+              <span class="level-badge ${workout.level}">${workout.level}</span>
+            </div>
+          </div>
+          <p class="card-subtitle">${workout.duration} minutes • ${workout.rounds} rounds</p>
+          <p class="card-description">${workout.description}</p>
+          <button class="btn btn-primary btn-full" onclick="startWorkout(event, ${workout.id}, '${workout.name}', ${workout.duration})">Start Workout</button>
+          <div class="card-details" style="display: none;">
+            <div class="workout-breakdown">
+              ${workout.breakdown.map(round => `
+                <div class="round-item">
+                  <div class="round-name">${round.name}</div>
+                  <div class="round-details">
+                    ${round.work_time ? `${round.work_time} min work / ${round.rest_time} min rest` : `${round.duration} minutes`}
+                  </div>
+                  <div class="round-details">${round.exercises}</div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Render drills
+    function renderDrills() {
+      const grid = document.getElementById('drills-grid');
+      grid.innerHTML = drills.map(drill => `
+        <div class="card" onclick="toggleDetails(this)">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">${drill.name}</h3>
+              <span class="combo-badge">${drill.type}</span>
+            </div>
+          </div>
+          <p class="card-subtitle">${drill.duration} minutes</p>
+          <p class="card-description">${drill.description}</p>
+          <button class="btn btn-primary btn-full" onclick="startDrill(event, ${drill.id}, '${drill.name}', ${drill.duration})">Start Drill</button>
+          <div class="card-details" style="display: none;">
+            <div class="detail-section">
+              <h4 class="detail-title">Steps</h4>
+              <ul class="step-list">
+                ${drill.steps.map(step => `<li>${step}</li>`).join('')}
+              </ul>
+            </div>
+            ${drill.tips ? `
+              <div class="detail-section">
+                <h4 class="detail-title">Tips</h4>
+                <ul class="detail-list">
+                  ${drill.tips.map(tip => `<li>${tip}</li>`).join('')}
+                </ul>
+              </div>
+            ` : ''}
+          </div>
+        </div>
+      `).join('');
+    }
+
+    // Toggle card details
+    function toggleDetails(card) {
+      const details = card.querySelector('.card-details');
+      if (details) {
+        const isVisible = details.style.display !== 'none';
+        details.style.display = isVisible ? 'none' : 'block';
+      }
+    }
+
+    // Start workout
+    function startWorkout(event, id, name, duration) {
+      event.stopPropagation();
+      if (confirm(`Start ${name}? This will be tracked in your progress.`)) {
+        addWorkoutToHistory(name, duration);
+        navigateToSection('timer');
+        alert(`${name} started! Use the timer to track your rounds.`);
+      }
+    }
+
+    // Start drill
+    function startDrill(event, id, name, duration) {
+      event.stopPropagation();
+      if (confirm(`Start ${name}? This will be tracked in your progress.`)) {
+        addWorkoutToHistory(name, duration);
+        alert(`${name} started! Follow the steps and use the timer if needed.`);
+      }
+    }
+
+    // Add workout to history
+    function addWorkoutToHistory(name, duration) {
+      const today = new Date().toDateString();
+      
+      appState.totalWorkouts++;
+      appState.totalMinutes += duration;
+      appState.workoutHistory.unshift({
+        name: name,
+        duration: duration,
+        date: today
+      });
+      
+      // Update streak
+      if (appState.lastWorkoutDate !== today) {
+        const yesterday = new Date();
+        yesterday.setDate(yesterday.getDate() - 1);
+        
+        if (appState.lastWorkoutDate === yesterday.toDateString()) {
+          appState.currentStreak++;
+        } else if (appState.lastWorkoutDate === null) {
+          appState.currentStreak = 1;
+        } else {
+          appState.currentStreak = 1;
+        }
+        
+        appState.lastWorkoutDate = today;
+      }
+      
+      // Keep only last 10 workouts
+      if (appState.workoutHistory.length > 10) {
+        appState.workoutHistory = appState.workoutHistory.slice(0, 10);
+      }
+    }
+
+    // Render progress
+    function renderProgress() {
+      document.getElementById('total-workouts').textContent = appState.totalWorkouts;
+      document.getElementById('total-time').textContent = appState.totalMinutes;
+      document.getElementById('current-streak').textContent = appState.currentStreak;
+      
+      const historyContainer = document.getElementById('workout-history');
+      if (appState.workoutHistory.length === 0) {
+        historyContainer.innerHTML = '<p style="color: var(--color-text-secondary);">No workouts yet. Start training to see your history!</p>';
+      } else {
+        historyContainer.innerHTML = appState.workoutHistory.map(workout => `
+          <div class="history-item">
+            <div class="history-info">
+              <div class="history-name">${workout.name}</div>
+              <div class="history-date">${workout.date}</div>
+            </div>
+            <div class="history-duration">${workout.duration} min</div>
+          </div>
+        `).join('');
+      }
+    }
+
+    // Workout filter
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        renderWorkouts(btn.dataset.level);
+      });
+    });
+
+    // Timer functions
+    function formatTime(seconds) {
+      const mins = Math.floor(seconds / 60);
+      const secs = seconds % 60;
+      return `${mins}:${secs.toString().padStart(2, '0')}`;
+    }
+
+    function updateTimerDisplay() {
+      document.getElementById('timer-display').textContent = formatTime(timerState.timeRemaining);
+      document.getElementById('timer-round').textContent = `Round ${timerState.currentRound} of ${timerState.totalRounds}`;
+      document.getElementById('timer-status').textContent = timerState.isResting ? 'Rest' : 'Work';
+    }
+
+    function playSound() {
+      // Create a simple beep sound using Web Audio API
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const oscillator = audioContext.createOscillator();
+      const gainNode = audioContext.createGain();
+      
+      oscillator.connect(gainNode);
+      gainNode.connect(audioContext.destination);
+      
+      oscillator.frequency.value = 800;
+      oscillator.type = 'sine';
+      
+      gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+      
+      oscillator.start(audioContext.currentTime);
+      oscillator.stop(audioContext.currentTime + 0.3);
+    }
+
+    function startTimer() {
+      if (!timerState.isRunning) {
+        timerState.isRunning = true;
+        timerState.isPaused = false;
+        document.getElementById('timer-start').style.display = 'none';
+        document.getElementById('timer-pause').style.display = 'inline-flex';
+        
+        timerState.interval = setInterval(() => {
+          timerState.timeRemaining--;
+          
+          if (timerState.timeRemaining <= 0) {
+            playSound();
+            
+            if (timerState.isResting) {
+              // Move to next round
+              timerState.currentRound++;
+              if (timerState.currentRound > timerState.totalRounds) {
+                // Workout complete
+                clearInterval(timerState.interval);
+                timerState.isRunning = false;
+                document.getElementById('timer-start').style.display = 'inline-flex';
+                document.getElementById('timer-pause').style.display = 'none';
+                document.getElementById('timer-status').textContent = 'Complete!';
+                alert('Workout complete! Great job!');
+                return;
+              }
+              timerState.isResting = false;
+              timerState.timeRemaining = timerState.workTime;
+            } else {
+              // Move to rest
+              timerState.isResting = true;
+              timerState.timeRemaining = timerState.restTime;
+            }
+          }
+          
+          updateTimerDisplay();
+        }, 1000);
+      }
+    }
+
+    function pauseTimer() {
+      if (timerState.isRunning) {
+        clearInterval(timerState.interval);
+        timerState.isRunning = false;
+        timerState.isPaused = true;
+        document.getElementById('timer-start').style.display = 'inline-flex';
+        document.getElementById('timer-pause').style.display = 'none';
+        document.getElementById('timer-start').textContent = 'Resume';
+      }
+    }
+
+    function resetTimer() {
+      clearInterval(timerState.interval);
+      timerState.isRunning = false;
+      timerState.isPaused = false;
+      timerState.currentRound = 1;
+      timerState.isResting = false;
+      
+      // Get values from inputs
+      timerState.workTime = parseInt(document.getElementById('work-time').value);
+      timerState.restTime = parseInt(document.getElementById('rest-time').value);
+      timerState.totalRounds = parseInt(document.getElementById('num-rounds').value);
+      timerState.timeRemaining = timerState.workTime;
+      
+      document.getElementById('timer-start').style.display = 'inline-flex';
+      document.getElementById('timer-pause').style.display = 'none';
+      document.getElementById('timer-start').textContent = 'Start';
+      
+      updateTimerDisplay();
+    }
+
+    document.getElementById('timer-start').addEventListener('click', startTimer);
+    document.getElementById('timer-pause').addEventListener('click', pauseTimer);
+    document.getElementById('timer-reset').addEventListener('click', resetTimer);
+
+    // Update timer settings
+    document.getElementById('work-time').addEventListener('change', () => {
+      if (!timerState.isRunning) {
+        timerState.workTime = parseInt(document.getElementById('work-time').value);
+        timerState.timeRemaining = timerState.workTime;
+        updateTimerDisplay();
+      }
+    });
+
+    document.getElementById('rest-time').addEventListener('change', () => {
+      if (!timerState.isRunning) {
+        timerState.restTime = parseInt(document.getElementById('rest-time').value);
+      }
+    });
+
+    document.getElementById('num-rounds').addEventListener('change', () => {
+      if (!timerState.isRunning) {
+        timerState.totalRounds = parseInt(document.getElementById('num-rounds').value);
+        updateTimerDisplay();
+      }
+    });
+
+    // Initialize app
+    function initApp() {
+      renderTechniques();
+      renderCombinations();
+      renderWorkouts();
+      renderDrills();
+      renderProgress();
+      updateTimerDisplay();
+    }
+
+    // Run on load
+    initApp();
+  </script>
+</body>
+</html>
